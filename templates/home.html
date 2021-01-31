@@ -1,0 +1,242 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Social Media Tag Builder{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+  <p class="lead d-flex justify-content-center"><strong>Social Media URL Tag Builder</strong></p>
+  <form action="" id="form">
+    <div class="form-row d-flex justify-content-end">
+      <p><span class="required-color">* Required</span></p>
+    </div>
+    <div class="form-row mb-1">
+      <div class="col-xs form-group">
+        <label for="" class="col-form-label">Group <span class="required-color">*</span></label>
+        <div class="col-override">
+          <div class=" btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn btn-outline-primary active">
+              <input type="radio" class='group' name="group" id='national' value="national" checked>National
+            </label>
+            <label class="btn btn-outline-primary btn">
+              <input type="radio" class='group' name="group" id="state" value="state">State
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg" id="department-validation">
+        <div id="nationalField" class=''>
+          <label class="col-form-label">Department <span class="required-color">*</span></label>
+          <select id="departmentInput" name="departmentInput" class="custom-select groupSubField" required>
+            <option selected></option>
+            <option value="marketing">Marketing</option>
+            <option value="policy">Policy</option>
+            <option value="science">Science</option>
+          </select>
+        </div>
+        <div id="stateField" class="needs-validation">
+          <label class="col-form-label">State Office<span class="required-color">*</span></label>
+          <select id="stateInput" class="custom-select groupSubField" required>
+            <option selected></option>
+            <option value="ak">Alaska</option>
+            <option value="ca">California</option>
+            <option value="fl">Florida</option>
+            <option value="la">Louisiana</option>
+            <option value="md_dc">Maryland-DC</option>
+            <option value="ny">New York</option>
+            <option value="tx">Texas</option>
+            <option value="wa">Washington</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-lg">
+        <label class="col-form-label">Environmental Priority <span class="required-color">*</span></label>
+        <select id="category" class="custom-select" required>
+          <option selected value=""></option>
+          <option value="x">None</option>
+          <option value="air_pollution">Air Pollution</option>
+          <option value="climate_change">Climate Change</option>
+          <option value="deforestation">Deforestation</option>
+          <option value="plastic_pollution">Plastic Pollution</option>
+          <option value="renewable_energy">Renewable Energy</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row form-group">
+      <div class="col">
+        <label class="col-form-label">URL <span class="required-color">*</span></label>
+        <textarea id="url" class="form-control" type="url" name="url" rows="2" required></textarea>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-lg-5">
+        <div class="form-row">
+          <div class="col">
+            <div class="form-row form-group">
+              <div class="col " id="start-date-group">
+                <label class="col-form-label">Campaign Start Date <span class="required-color">*</span></label>
+                <input id="start-date" name="startdate" class="form-control" type="date" value="" required>
+              </div>
+              <div class="col" id="entire-month-group">
+                <div class=form-row>
+                  <div class="col-sm-6 needs-validation" id="month-validation">
+                    <label class="col-form-label">Start Month <span class="required-color">*</span></label>
+                    <select id="month" name="month" class="custom-select" required>
+                      <option selected></option>
+                      <option value="01">January</option>
+                      <option value="02">February</option>
+                      <option value="03">March</option>
+                      <option value="04">April</option>
+                      <option value="05">May</option>
+                      <option value="06">June</option>
+                      <option value="07">July</option>
+                      <option value="08">August</option>
+                      <option value="09">September</option>
+                      <option value="10">October</option>
+                      <option value="11">November</option>
+                      <option value="12">December</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-6 needs-validation" id="year-validation">
+                    <label class="col-form-label">Start Year <span class="required-color">*</span></label>
+                    <select id="year" class="custom-select" required>
+                      <option selected></option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-5 d-flex align-items-end mt-2 mt-xs-0">
+                <div class="custom-control custom-switch form-check pb-2">
+                  <input class="custom-control-input" type="checkbox" name="DateCheckboxOption" id="entire-month"
+                    value="entire_month">
+                  <label class="custom-control-label" for="entire-month">set as entire month</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col form-group has-error" id="campaign-validation">
+            <label class="col-form-label">Campaign Name<span class="required-color has-error">*</span></label>
+            <input id="campaign" name="campaign" class="form-control" type="text" value="" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col form-group">
+            <label class="col-form-label">Content</label>
+            <input id="content" name="content" class="form-control" type="text" value="" placeholder="(Optional)">
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7 align-self-center align-content-center">
+        <div class="form-row d-flex justify-content-lg-center">
+          <div class="col-sm-3 pr-lg-3">
+            <div class="form-group">
+              <label for="" class="col-form-label">Type <span class="required-color">*</span></label>
+              <div class="">
+                <div class="form-check">
+                  <input class="form-check-input type-group" type="radio" name="TypeRadioOptions" id="acquisition"
+                    value="acq" required>
+                  <label class="form-check-label" for="acquisition">Acquisition</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input type-group" type="radio" name="TypeRadioOptions" id="advocacy"
+                    value="adv" required>
+                  <label class="form-check-label" for="advocacy">Advocacy</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input type-group" type="radio" name="TypeRadioOptions" id="engagement"
+                    value="eng" required>
+                  <label class="form-check-label" for="engagement">Engagement</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input type-group" type="radio" name="TypeRadioOptions" id="fundraising"
+                    value="fund" required>
+                  <label class="form-check-label" for="fundraising">Fundraising</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3 px-lg-3">
+            <div class="form-group">
+              <label for="" class="col-form-label">Medium <span class="required-color">*</span></label>
+              <div class="form-check">
+                <input class="form-check-input medium-group" name="medium" type="radio" id="paid_social"
+                  value="paid_social" required>
+                <label class="form-check-label" for="paid_social">Paid Social</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input medium-group" name="medium" type="radio" id="social" value="social"
+                  required>
+                <label class="form-check-label" for="social">Social</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3 pl-lg-3 form-group">
+            <div class="form-group">
+              <label for="" class="col-form-label" id="source-label">Source <span
+                  class="required-color">*</span></label>
+              <div class="custom-control custom-switch form-check">
+                <input class="custom-control-input source-group" type="checkbox" name="source" id="facebook"
+                  value="facebook" required>
+                <label class="custom-control-label" for="facebook">Facebook</label>
+              </div>
+              <div class="custom-control custom-switch source">
+                <input class="custom-control-input source-group" type="checkbox" name="source" id="instagram"
+                  value="instagram" required>
+                <label class="custom-control-label" for="instagram">Instagram</label>
+              </div>
+              <div class="custom-control custom-switch source">
+                <input class="custom-control-input source-group" type="checkbox" name="source" id="linkedin"
+                  value="linkedin" required>
+                <label class="custom-control-label" for="linkedin">LinkedIn</label>
+              </div>
+              <div class="custom-control custom-switch source">
+                <input class="custom-control-input source-group" type="checkbox" name="source" id="snapchat"
+                  value="snapchat" required>
+                <label class="custom-control-label" for="snapchat">Snapchat</label>
+              </div>
+              <div class="custom-control custom-switch source">
+                <input class="custom-control-input source-group" type="checkbox" name="source" id="tiktok"
+                  value="tiktok" required>
+                <label class="custom-control-label" for="tiktok">TikTok</label>
+              </div>
+              <div class="custom-control custom-switch source">
+                <input class="custom-control-input source-group" type="checkbox" name="source" id="twitter"
+                  value="twitter" required>
+                <label class="custom-control-label" for="twitter">Twitter</label>
+              </div>
+              <div class="custom-control custom-switch source">
+                <input class="custom-control-input source-group" type="checkbox" name="source" id="youtube"
+                  value="youtube" required>
+                <label class="custom-control-label" for="youtube">YouTube</label>
+              </div>
+              <div class="custom-control custom-switch source">
+                <input class="custom-control-input source-group" type="checkbox" name="source" id="zoom" value="zoom"
+                  required>
+                <label class="custom-control-label" for="zoom">Zoom</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <br>
+  <div id="result-group">
+    <label id="first-result" for="">Generated URL</label>
+    <div class="input-group mb-3">
+      <textarea id="first-generated-url" class="form-control generated-url"
+        placeholder="Please complete all required fields." type="text" name="" id="" rows="2" readonly></textarea>
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary copy-button" data-toggle="tooltip" id="button1" type="post"
+          title="Copy to Clipboard">Copy</button>
+      </div>
+    </div>
+  </div>
+  <br>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,47 @@
+textarea {
+  width: 100%;
+  max-width: 100%;
+  word-break: break-all;
+}
+
+.col-override {
+  position: relative;
+  width: 100%;
+}
+
+#stateField {
+  display: none;
+}
+
+#regionField {
+  display: none;
+}
+
+#centerField {
+  display: none;
+}
+
+.copy_button {
+  pointer-events: none;
+}
+
+#entire-month-group {
+  display: none;
+}
+
+.required-color {
+  color: #dc3545;
+}
+
+.help-block {
+  color: #dc3545;
+  font-size: smaller;
+}
+
+.group-invalid label.custom-control-label,  .group-invalid label.form-check-label {
+  color: #dc3545;
+}
+
+#logo-text {
+  font-size:5vw;
+}
