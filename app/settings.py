@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 MAIN_HOST = 'url-tag-builder.up.railway.app'
-ALLOWED_HOSTS = [MAIN_HOST, 'url-tag-builder-v2.herokuapp.com']
+ALLOWED_HOSTS = [MAIN_HOST, 'url-tag-builder-v2.herokuapp.com', 'https://url-tag-builder.onrender.com']
 
 
 # Application definition
